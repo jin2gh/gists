@@ -1,0 +1,65 @@
+$radius: 15px;
+
+.tabs {
+  display: flex;
+  background: #d3e4fc;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-top-right-radius: $radius;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    position: absolute;
+    width: $radius * 2;
+    height: $radius * 2;
+    border: $radius solid;
+    border-radius: 50%;
+    box-sizing: content-box;
+    content: "";
+  }
+
+  &::before {
+    top: -$radius;
+    left: -$radius * 3;
+    clip-path: inset($radius $radius 50% 50%);
+    z-index: 0;
+  }
+
+  &::after {
+    bottom: -$radius;
+    right: -$radius * 3;
+    clip-path: inset(50% 50% $radius $radius);
+    z-index: 1;
+  }
+
+  & > span {
+    color: #000;
+  }
+}
+
+.first {
+  display: flex;
+  align-items: center;
+  width: 245px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #fff7d0 0%, #ffffff 100%);
+  border-top-left-radius: $radius;
+  color: #fff;
+
+  &::before {
+    display: none;
+  }
+}
+
+.second {
+  width: 52px;
+  background: #f5f6f9;
+  color: #f5f6f9;
+}
